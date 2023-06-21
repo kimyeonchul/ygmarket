@@ -1,0 +1,29 @@
+html{
+      margin: 0;
+      padding: 0;
+      width: 100%;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      width: 100%;
+      height: fit-content;
+        position: relative;
+    }
+
+    ul {
+      text-decoration: none;
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    p {
+      margin: 0;
+
+    }

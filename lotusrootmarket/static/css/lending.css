@@ -1,0 +1,196 @@
+    main {
+            width: 95%;
+    }
+        .main_section {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #main_section1 {
+            background-color: #FBF7F2;
+        }
+
+        #main_section2 {
+            background-color: white;
+        }
+
+        #main_section3 {
+            background-color: #E5F3E6;
+        }
+
+        #main_section5 {
+            height: fit-content;
+            background-color: #F8F9FA;
+        }
+
+        .section_title {
+            margin-top: 100px;
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+
+        }
+
+        .section_document {
+            margin-top: 30px;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .main_section_image_wrap {
+            margin-top: 30px;
+            position: relative;
+        }
+
+        .section_image {
+            width: 300px;
+        }
+
+        #section1_image1 {
+            position: absolute;
+        }
+
+        #section1_image2 {
+            margin-top: 20px;
+            margin-left: 80px;
+        }
+
+        #section2_image1 {
+            position: absolute;
+        }
+
+        #section2_image2 {
+            margin-left: 300px;
+        }
+
+        #section3_image1 {
+            position: absolute;
+        }
+
+        #section3_image2 {
+            margin-top: 10px;
+            margin-left: 200px;
+        }
+
+        #section4_image1 {
+            position: absolute;
+        }
+
+        #section4_image2 {
+            margin-top: 20px;
+            margin-left: 300px;
+        }
+
+        .main_section2_btn {
+            background-color: #F1F3F5;
+            color: black;
+            width: 330px;
+            padding: 20px 0px;
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .best_products_wrap {
+            padding-top: 20px;
+            width: 1000px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            height: fit-content;
+        }
+
+        .best_products {
+            color: black;
+            cursor: pointer;
+            width: 240px;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        .best_products_image_wrap{
+            width: 240px;
+            height: 240px;
+            object-fit: cover;
+        }
+        .best_products_image {
+            height: 100%;
+            width: 100%;
+            border-radius: 20px;
+        }
+
+        .best_products_title {
+            font-size: 16px;
+        }
+
+        .best_products_price {
+            font-weight: bold;
+        }
+
+        .best_products_address {
+            font-size: 12px;
+        }
+
+        .best_products_likes{
+            font-size: 14px;
+        }
+
+        .more_best_products {
+            color: black;
+            text-decoration: underline;
+            margin-bottom: 50px;
+        }
+
+        .best_search_wrap {
+            padding: 50px 0px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid #4D5159;
+        }
+
+        .best_search_title {
+            color: black;
+            text-decoration: underline;
+        }
+
+        .best_search_item_wrap{
+            width: 100%;
+        }
+
+        .best_search_item_wrap > ul{
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .lending_search_col{
+            color: black;
+        }
+
+    @media (max-width: 1400px) {
+        .best_products_wrap{
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: center;
+        }
+        .best_products {
+            width: 240px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+    }

@@ -1,0 +1,114 @@
+.product_detail_main {
+      position: relative;
+      width: 100vw;
+      height: fit-content;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .detail_image {
+      width: 800px;
+      height: 500px;
+      object-fit: cover;
+    }
+
+
+
+    .detail_user_info_wrap {
+      width: 800px;
+      display: flex;
+      justify-content: space-between;
+      padding: 40px 0px;
+      border-bottom: 1px solid lightgray;
+    }
+
+    .detail_product_info_wrap {
+      padding: 40px 0px;
+      width: 800px;
+      border-bottom: 1px solid lightgray;
+    }
+
+    .detail_product_update_btn {
+      background-color: #CFBE78;
+      color: white;
+      font-weight: bold;
+      padding: 10px;
+      border-radius: 10px;
+      margin-top: 20px;
+      position: fixed;
+      right: 20px;
+      bottom: 50px;
+    }
+
+    .detail_product_like_btn {
+      display: flex;
+    }
+
+    #detail_product_title {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    #detail_product_category_created_at {
+      color: #4D5159;
+      font-size: 14px;
+    }
+
+    #detail_product_price {
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    #detail_product_like {
+      color: #4D5159;
+    }
+
+    .detail_best_products_wrap {
+      width: 800px;
+      display: flex;
+      flex-wrap: wrap;
+      height: fit-content;
+    }
+
+    .detail_best_products {
+      color: black;
+      cursor: pointer;
+      flex: 33%;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+    }
+
+    .detail_best_products_wrap_title_wrap {
+      width: 800px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 30px 0px;
+    }
+
+    .detail_best_products_wrap_title {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .detail_more_best_products {
+      color: orange;
+    }
+
+    .detail_best_products_image {
+      width: 200px;
+      height: 200px;
+      border-radius: 20px;
+    }
+
+    .detail_best_products_price {
+      font-weight: bold;
+    }
+
+    .detail_best_products_address {
+      color: #4D5159;
+      font-size: 12px;
+    }

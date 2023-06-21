@@ -1,0 +1,78 @@
+{% extends 'product/base.html' %}
+{% load static %}
+{% block main_area %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lending</title>
+    <link rel="stylesheet" href="{% static 'css/lending.css' %}">
+</head>
+<main>
+    <section class="main_section" id="main_section1">
+        <div class="section_title">당신근처의<br/>당근마켓</div>
+        <div class="section_document">중고거래부터 동네정보까지, 이웃과 함께해요. <br/> 가깝고 따뜻한 당신의 근처를 만들어요.</div>
+        <div class="main_section_image_wrap">
+            <img class="section_image" id="section1_image1" src="{% static "images/section1_1.jpg" %}" alt="">
+            <img class="section_image" id="section1_image2" src="{% static "images/section1_2.jpg" %}" alt="">
+
+        </div>
+    </section>
+
+    <section class="main_section" id="main_section2">
+        <div class="section_title">우리 동네<br/>중고 직거래 마켓</div>
+        <div class="section_document">동네 주민들과 가깝고 따뜻한 거래를<br/>지금 경험해보세요.</div>
+        <a href="{% url 'best_product'  %}" class="main_section2_btn">인기매물 보기</a>
+        <a href="/product/" class="main_section2_btn">믿을 수 있는 중고거래</a>
+        <div class="main_section_image_wrap">
+            <img class="section_image" id="section2_image1" src="{% static "images/section2_1.jpg" %}" alt="">
+            <img class="section_image" id="section2_image2" src="{% static "images/section2_2.jpg" %}" alt="">
+        </div>
+    </section>
+    <section class="main_section" id="main_section3">
+        <div class="section_title">이웃과 함께 하는 <br/>동네생활</div>
+        <div class="section_document">우리 동네의 다양한 이야기를<br/>이웃과 함께 나누어요.</div>
+        <div class="main_section_image_wrap">
+            <img class="section_image" id="section3_image1" src="{% static "images/section3_1.jpg" %}" alt="">
+            <img class="section_image" id="section3_image2" src="{% static "images/section3_2.jpg" %}" alt="">
+        </div>
+    </section>
+    <section class="main_section" id="main_section4">
+        <div class="section_title">내 근처에서 찾는 <br/>동네가게</div>
+        <div class="section_document">우리 동네 가게를 찾고 있나요 ?<br/>동네 주민이 남긴 진짜 후기를 함께 확인해보세요.</div>
+        <div class="main_section_image_wrap">
+            <img class="section_image" id="section4_image1" src="{% static "images/section4_1.jpg"%}" alt="">
+            <img class="section_image" id="section4_image2" src="{% static "images/section4_2.jpg"%}" alt="">
+        </div>
+    </section>
+    <section class="main_section" id="main_section5">
+        <div class="section_title">중고거래 인기매물</div>
+        <div class="best_products_wrap">
+            {% for product in best_products %}
+            <a type="button" href="{{product.get_absolute_url}}" class="best_products">
+                <div class="best_products_image_wrap">
+                    <img class="best_products_image" src="{{product.image.url}}"/>
+                </div>
+                <p class="best_products_title">{{product.title}}</p>
+                <p class="best_products_price">{{product.price}}원</p>
+                <p class="best_products_address">{{product.address}}</p>
+                <p class="best_products_likes">관심 {{product.likes.count}}</p>
+            </a>
+
+            {% endfor %}
+
+        </div>
+        <a href="{% url 'best_product'  %}" class="more_best_products">인기매물 더 보기</a>
+    </section>
+    <div class="best_search_wrap">
+        <div class="best_search_title">중고거래 인기검색어</div>
+        <div class="best_search_item_wrap">
+            <ul>
+                {% for search in popular_searches %}
+                   <a class="lending_search_col" href="{% url 'product_search' %}?query={{ search.query }}">{{ search.query }}</a>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</main>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>navbar</title>
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+</head>
+<nav>
+  <a type="button" href="/" class="wrap_logo">
+    <img src="{% static 'images/lotusroot.png' %}" alt="연근" width="40px">
+    <div class="logo_title">연근마켓</div>
+  </a>
+  <ul class="navbar_ul">
+    <li><a href="/product/" class="navbar_a" type="">중고거래</a></li>
+    <li><a href="" class="navbar_a" type="">동네가게</a></li>
+    <li><a href="" class="navbar_a" type="">알바</a></li>
+    <li><a href="" class="navbar_a" type="">부동산직거래</a></li>
+    <li>
+      <a href="" class="navbar_a" type="">중고차직거래
+      </a>
+    </li>
+
+  </ul>
+  <form method="get" action="{% url 'product_search' %}">
+    <input name="query" class="search_input" placeholder=" 물품이나 동네를 검색해보세요" />
+    <input type="submit" hidden=""/>
+  </form>
+  {% if request.user.is_authenticated %}
+  <a href="https://chat.daangn.com/login" target="_blank" class="chatting_btn">채팅하기</a>
+  <a href="{% url 'account:profile' %}" class="navbar_login_btn">
+    <img src="{% static 'images/mypage.png'%}" alt="mypage" width="40px">
+  </a>
+  {%else%}
+  <a href="{% url 'account:login' %}" class="chatting_btn">채팅하기</a>
+  <a href="{% url 'account:login' %}" class="navbar_login_btn">
+    <img src="{% static 'images/mypage.png'%}" alt="mypage" width="40px">
+  </a>
+  {% endif %}
+
+
+
+</nav>

@@ -1,0 +1,72 @@
+
+        .login_form {
+            margin: 50px 0px;
+            padding: 50px 0px;
+            width: 500px;
+            border-top: 1px solid lightgray;
+            border-bottom: 1px solid lightgray;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .login_mascot_wrap{
+            width: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loginInputWrap {
+            min-height: 200px;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        .loginInputWrap>div {
+            width: inherit;
+        }
+
+        .loginInputWrap>div>p {
+            font-weight: 400;
+            color: #4D5159;
+        }
+
+        .loginInputWrap>div>input {
+            width: 100%;
+            border: none;
+            background-color: #F2F3F6;
+            height: 35px;
+            border-radius: 5px;
+        }
+
+        .signupBtWrap {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .login_submit_btn {
+            background-color: #4D5159;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            color: white;
+            cursor: pointer;
+            font-size: 14px;
+
+        }
+
+        .login_singup_btn {
+            background-color: #4D5159;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 10px;
+        }

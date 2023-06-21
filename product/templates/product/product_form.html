@@ -1,0 +1,41 @@
+{% extends 'product/base.html' %}
+{% load static %}
+
+{% block main_area %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product_form</title>
+    <link rel="stylesheet" href="{% static 'css/product_form.css' %}">
+</head>
+
+
+<form action="{% url 'product-create' %}" class="create_product_form" method="post" enctype="multipart/form-data">
+  {%csrf_token %}
+
+  <div class="create_product_image_wrap">
+    <label class="create_product_image_label" >
+      <img class="create_product_image" src="{% static "images/camera.png" %}" />
+      <p>0/10</p>
+    </label>
+    <input class="create_product_image_input" id="create_product_image" name="image" type="file" accept="image/*" />
+    <div class="create_product_preview"></div>
+  </div>
+  <input class="create_product_input" id="create_product_title" name="title" placeholder="글 제목" />
+  <input class="create_product_input" id="create_product_price" name="price" placeholder="가격 (선택사항)" />
+  <input class="create_product_input" id="create_product_document" name="document"
+    placeholder="게시글 내용을 작성해주세요. (판매 금지 물품은 게시가 제한될 수 있어요." />
+  <input class="create_product_input" id="create_product_address" name="address" type="text" placeholder="거래 희망 장소" />
+  카테고리 선택
+  {{form.category}}
+<!--  <select name="category" id="create_product_category">-->
+<!--    {% for category in form.category %}-->
+<!--    <option value="{{ category }}"></option>-->
+<!--    {% endfor %}-->
+<!--  </select>-->
+  <input type="submit" class="create_product_confirm_btn" value="완료" />
+</form>
+<script type="text/javascript" src="/static/js/product_form.js"></script>
+
+
+{% endblock %}

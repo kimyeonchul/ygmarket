@@ -1,0 +1,94 @@
+{% extends 'product/base.html' %}
+{% load static %}
+
+{% block main_area %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+</head>
+
+<main class="signup_main">
+  <form class="signup_main_form" action="{% url 'account:user_update' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="left_signup_main">
+      <label class="signup_label_profile_image" >
+        <img class="signup_profile_image_preview" src="{{user.profile_image.url}}" alt="프로필이미지" width="100px"
+          height="100px" style="object-fit: cover;">
+      </label>
+      <input class="signup_input_profile_image" value="{{user.profile_image}}" name="profile_image" type="file" hidden />
+    </div>
+    <div class="right_signup_main">
+      <input type="text" name="name" placeholder="{{user.first_name}}{{user.last_name}}"
+        value="{{user.first_name}}{{user.last_name}}" />
+      <input type="text" name="username" placeholder="{{user.username}}" value="{{user.username}}" disabled />
+    </div>
+    <input id="signupSB" type="submit" style="display:none">
+  </form>
+  <div class="signupBtWrap">
+    <button class="signupBt">정보수정</button>
+  </div>
+</main>
+<div class="profile_btn_wrap">
+  <button class="loginBt" onclick="location.href='{% url 'account:logout' %}'">로그아웃</button>
+  <button class="signoutBt" onclick="location.href='{% url 'account:user_delete' %}'">탈퇴하기</button>
+</div>
+<p class="title_recently_viewed_products">최근 조회 목록</p>
+{% if recently_viewed_products.count == 0 %}
+  <p class="profile_not_found_products">표시할 상품이 없습니다.</p>
+{% else %}
+  <div class="recently_viewed_products">
+  {% for product in recently_viewed_products%}
+    <a type="button" href="{{product.get_absolute_url}}" class="recently_viewed_product">
+      <div class="recently_viewed_product_image_wrap">
+        <img class="recently_viewed_product_image" src="{{product.image.url}}" width="100px" height="100px"/>
+      </div>
+      <p class="recently_viewed_product_title">{{product.title |truncatechars:7}}</p>
+      <p class="recently_viewed_product_price">{{product.price}}원</p>
+    </a>
+  {% endfor %}
+</div>
+{% endif %}
+
+<p class="title_liked_products">관심 있는 목록</p>
+{% if liked_products.count == 0 %}
+<p class="profile_not_found_products">표시할 상품이 없습니다.</p>
+{% else %}
+
+<div class="liked_products">
+  {% for product in liked_products%}
+    <a type="button" href="{{product.get_absolute_url}}" class="liked_product">
+      <div class="liked_product_image_wrap">
+        <img class="liked_product_image" src="{{product.image.url}}" width="100px" height="100px"/>
+      </div>
+      <p class="liked_product_title">{{product.title |truncatechars:7}}</p>
+      <p class="liked_product_price">{{product.price}}원</p>
+    </a>
+  {% endfor %}
+</div>
+
+{% endif %}
+
+<p class="title_liked_products">내가 쓴 글</p>
+{% if user.get_user_products.count == 0 %}
+<p class="profile_not_found_products">표시할 상품이 없습니다.</p>
+{% else %}
+
+<div class="user_get_user_products">
+  {% for product in user.get_user_products%}
+    <a type="button" href="{{product.get_absolute_url}}" class="user_get_user_product">
+      <div class="user_get_user_product_image_wrap">
+        <img class="user_get_user_product_image" src="{{product.image.url}}" width="100px" height="100px"/>
+      </div>
+      <p class="user_get_user_product_title">{{product.title |truncatechars:7}}</p>
+      <p class="user_get_user_product_price">{{product.price}}원</p>
+    </a>
+  {% endfor %}
+</div>
+
+{% endif %}
+
+<script type="text/javascript" src="/static/js/profile.js"></script>
+
+{% endblock %}

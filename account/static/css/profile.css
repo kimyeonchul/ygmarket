@@ -1,0 +1,128 @@
+.signup_main {
+      margin: 50px 0px;
+      padding: 50px 0px;
+      width: 500px;
+      min-height: 300px;
+      border-top: 1px solid lightgray;
+      border-bottom: 1px solid lightgray;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+        position: relative;
+    }
+
+    .signup_main_form {
+      min-height: 200px;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      height: 100%;
+    }
+
+    .left_signup_main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      height: 200px;
+    }
+
+    .right_signup_main {
+      flex: 1;
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .signup_label_profile_image {
+      cursor: pointer;
+      padding: 10px;
+      border: 1px solid lightgray;
+      border-radius: 5px;
+    }
+
+    .signup_label_profile_image:hover{
+        background-color: lightgray;
+    }
+
+    .right_signup_main>input {
+      background-color: #F2F3F6;
+      border: none;
+      width: 200px;
+      font-size: 14px;
+      padding: 10px;
+    }
+
+    .signupBtWrap {
+      display: flex;
+      width: 100%;
+      justify-content: space-around;
+      align-items: center;
+      padding-top: 20px;
+    }
+
+    .signupBt,
+    .loginBt,
+    .signoutBt {
+      background-color: #4D5159;
+      padding: 5px 20px;
+      color: white;
+      border: none;
+      font-size: 14px;
+      border-radius: 5px;
+    }
+
+    .profile_btn_wrap{
+        width: 50%;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .title_recently_viewed_products,.title_liked_products,.title_liked_products{
+        width: 500px ;
+        display: flex;
+        justify-content: center;
+        border-top: 1px solid lightgray;
+        margin: 50px 0px 20px 0px;
+        padding: 50px 0px 20px 0px;
+    }
+
+    .recently_viewed_products, .liked_products,.user_get_user_products{
+        width: 500px;
+        display: flex;
+        padding-bottom: 50px;
+        margin-bottom: 50px;
+        overflow: auto;
+    }
+    .liked_products{
+        border-bottom: 1px solid lightgray;
+    }
+
+    .recently_viewed_product, .liked_product,.user_get_user_product{
+        width: 150px;
+        margin-right: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .recently_viewed_product_image_wrap,.liked_product_image_wrap,.user_get_user_product_image_wrap{
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+    }
+
+    .recently_viewed_product_title,.recently_viewed_product_price,.liked_product_title,.liked_product_price,.user_get_user_product_title,.user_get_user_product_price{
+        color: black;
+    }
+
+    .liked_product_price, .profile_not_found_products{
+        margin-bottom: 50px;
+    }
+

@@ -1,0 +1,83 @@
+
+        .product_list_search_result{
+            margin-top: 20px;
+        }
+
+        .product_list_main {
+            width: 1200px;
+            height: fit-content;
+            position: relative;
+        }
+
+        .product_list_main_nav {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            border: 1px solid lightgray;
+            padding: 10px 0px;
+        }
+
+        .product_list_main_nav_col {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            cursor: pointer;
+            color: black;
+        }
+
+        .product_list_main_nav_col:hover{
+            background-color: #CFBE78;
+            color: white;
+        }
+
+        .product_list_main_main_section {
+            width: 100%;
+            min-height: 300px;
+        }
+
+        .no_product_list_main_main_section {
+            width: 100%;
+            min-height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .product_list_main_main_section_row {
+            width: 100%;
+            display: flex;
+            padding: 10px 0px;
+            border-bottom: 1px solid lightgray;
+        }
+
+        .product_list_main_main_section_row_image {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .product_list_main_main_section_row_image_wrap {
+            object-fit: cover;
+        }
+
+        .product_list_main_main_section_row_document_wrap {
+            margin-left: 10px;
+            font-weight: normal;
+            cursor: pointer;
+            color: black;
+        }
+
+        .product_list_create_product {
+            background-color: #CFBE78;
+            color: white;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 10px;
+            margin-top: 20px;
+            position: fixed;
+            right: 20px;
+            bottom: 50px;
+        }

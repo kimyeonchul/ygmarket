@@ -1,0 +1,36 @@
+{% extends 'product/base.html' %}
+{% load static %}
+
+{% block main_area %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+</head>
+<main class="signup_main">
+    <form class="signup_main_form" action="{% url 'account:sign-up' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="left_signup_main">
+            <label class="signup_label_profile_image" for="profile_image">
+                <img class="signup_profile_image_preview" src="{% static 'images/person.png' %}" alt="프로필이미지"
+                    width="100px" height="100px" style="object-fit: cover;">
+            </label>
+            <input class="signup_input_profile_image" name="profile_image" type="file" hidden />
+        </div>
+        <div class="right_signup_main">
+            <input type="text" name="name" placeholder="이름" />
+            <input type="text" name="username" placeholder="아이디" />
+            <input type="password" name="password" placeholder="비밀번호" />
+        </div>
+        <input id="signupSB" type="submit" style="display:none">
+    </form>
+    <div class="signupBtWrap">
+        <button class="signupBt">회원가입</button>
+        <button class="loginBt" onclick="location.href='{% url 'account:login' %}'">로그인 하러 가기</button>
+    </div>
+<script type="text/javascript" src="/static/js/signup.js"></script>
+
+</main>
+
+{% endblock %}

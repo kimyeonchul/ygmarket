@@ -1,0 +1,36 @@
+{% extends 'product/base.html' %}
+{% load static %}
+
+{% block main_area %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>product_form_update</title>
+    <link rel="stylesheet" href="{% static 'css/product_form_update.css' %}">
+</head>
+<form action = "{% url 'product_update' product.pk %}" class="create_product_form" method="post" enctype="multipart/form-data">{% csrf_token %}
+
+  <div class="create_product_image_wrap">
+    <label class="create_product_image_label">
+      <img class="create_product_preview_image" alt="상품이미지" src="{{product.image.url}}" width="100px" height="100px"/>
+    </label>
+      <input class="create_product_image_input" value="{{product.image.url}}" id="create_product_image"  name="image" type="file" hidden/>
+  </div>
+    <input class="create_product_input" id="create_product_title" name="title" placeholder="글 제목" value="{{form.title.value}}"/>
+    <input class="create_product_input" id="create_product_price"  name="price" placeholder="가격 (선택사항)" value="{{form.price.value}}"/>
+    <input class="create_product_input" id="create_product_document"  name="document" placeholder="게시글 내용을 작성해주세요. (판매 금지 물품은 게시가 제한될 수 있어요." value="{{form.document.value}}"/>
+    <input class="create_product_input"id="create_product_address"  name="address" type="text" placeholder="거래 희망 장소" value="{{form.address.value}}"/>
+  카테고리선택
+  {{form.category}}
+<div class="create_product_confirm_btn_wrap">
+  <button type="button" class="product_delete_btn" onclick="location.href='{% url 'product_delete' product.pk %}'">삭제하기</button>
+  <input type="submit" class="create_product_confirm_btn" value="완료"></input>
+
+</div>
+
+</form>
+<script type="text/javascript" src="/static/js/product_form_update.js"></script>
+
+
+ {% endblock %}
+

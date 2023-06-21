@@ -1,0 +1,80 @@
+{% extends 'product/base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block main_area %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>product_detail</title>
+    <link rel="stylesheet" href="{% static 'css/product_detail.css' %}">
+</head>
+<main class="product_detail_main">
+  <!-- 템플릿의 해당 부분에 수정 버튼 추가 -->
+  {% if request.user == object.author %}
+  <a class="detail_product_update_btn" href="{% url 'product_update' pk=object.pk %}" class="btn btn-primary">수정</a>
+  {% endif %}
+  <img class="detail_image" src="{{product.image.url}}" />
+  <div class="detail_user_info_wrap">
+    <div class="left_detail_user_info_wrap">
+      <div class="detail_user_image_wrap">
+        <img src="" alt="" />
+      </div>
+      <p>{{product.author}}</p>
+      <p>{{product.address}}</p>
+
+    </div>
+    <div class="right_detail_user_info_wrap">
+      {% if request.user.is_authenticated %}
+      {% if request.user in product.likes.all %}
+      <a class="detail_product_like_btn" href="{% url 'like_product' product_id=product.id %}">
+        <img src="{% static 'images/full_heart.png' %}" alt="heart" width="20px" />
+      </a>
+      {% else %}
+      <a class="detail_product_like_btn" href="{% url 'like_product' product_id=product.id %}">
+        <img src="{% static 'images/empty_heart.png' %}" alt="heart" width="20px" />
+
+      </a>
+      {% endif %}
+      {% else %}
+      <!-- 로그인하지 않은 사용자일 경우 -->
+      <a class="detail_product_like_btn" href="{% url 'account:login' %}">
+        <img src="{% static 'images/empty_heart.png' %}" alt="heart" width="20px" />
+      </a>
+      {% endif %}
+    </div>
+  </div>
+  <div class="detail_product_info_wrap">
+    <p id="detail_product_title">{{product.title}}</p>
+    <p id="detail_product_category_created_at">{{product.category}} * {{ product.created_at |timesince|naturaltime }} 전</p>
+    <p id="detail_product_price">{{product.price}}원</p>
+    <p id="detail_product_document">{{product.document}}</p>
+    <p id="detail_product_like">관심 {{ product.likes.count }}</p>
+    <p id="detail_product_views">조회 {{ product.views }}</p>
+
+  </div>
+  <div class="detail_best_products_wrap_title_wrap">
+    <div class="detail_best_products_wrap_title">당근마켓 인기중고</div>
+    <a href="{% url 'best_product'  %}" type="button" class="detail_more_best_products">더 구경하기</a>
+  </div>
+
+  <div class="detail_best_products_wrap">
+    {% for product in best_products %}
+    <a type="button" href="{{product.get_absolute_url}}" class="detail_best_products">
+      <div class="detail_best_products_image_wrap">
+        <img class="detail_best_products_image" src="{{product.image.url}}" />
+      </div>
+      <p class="detail_best_products_title">{{product.title}}</p>
+      <p class="detail_best_products_price">{{product.price}}원</p>
+      <p class="detail_best_products_address">{{product.address}}</p>
+      <p class="detail_best_products_likes">관심{{product.likes.count}} * 조회 {{product.views}}</p>
+
+
+    </a>
+
+    {% endfor %}
+
+  </div>
+</main>
+{% endblock %}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gasoek+One&display=swap" rel="stylesheet">
+  <title>Base</title>
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+</head>
+
+<body>
+<img id="base_mascot_image1" src="{% static 'images/mascot.png' %}" alt="mascot" width="100px" height="100px" style="position: absolute">
+<img id="base_mascot_image2" src="{% static 'images/mascot.png' %}" alt="mascot" width="100px" height="100px" style="position: absolute">
+<img id="base_mascot_image3" src="{% static 'images/mascot.png' %}" alt="mascot" width="100px" height="100px" style="position: absolute">
+  {% include 'product/navbar.html' %}
+  {% block main_area %}
+  {% endblock %}
+  {% include 'product/footer.html' %}
+
+</body>
+<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/static/js/base.js"></script>
+
+</html>
